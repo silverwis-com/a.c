@@ -71,3 +71,46 @@
         </div>
     </footer>
 </article>
+
+<!-- 관련 포스트 -->
+{{ $related := .Site.RegularPages.Related . | first 3 }}
+{{ if $related }}
+<section class="related-posts">
+    <h2 class="section-title">관련 포스트</h2>
+    <div class="related-grid">
+        {{ range $related }}
+        <article class="related-item">
+            <a href="{{ .Permalink }}" class="related-link">
+                {{ if .Params.image }}
+                <img src="{{ .Params.image | relURL }}" alt="{{ .Title }}" class="related-image">
+                {{ else }}
+                <img src="https://via.placeholder.com/200x120" alt="{{ .Title }}" class="related-image">
+                {{ end }}
+                <div class="related-content">
+                    <h3 class="related-title">{{ .Title }}</h3>
+                    <p class="related-excerpt">{{ .Summary | truncate 80 }}</p>
+                    <span class="related-date">{{ .Date.Format "2006.01.02" }}</span>
+                </div>
+            </a>
+        </article>
+        {{ end }}
+    </div>
+</section>
+{{ end }}
+
+<!-- 댓글 섹션 -->
+<section class="comments-section">
+    <h2 class="section-title">댓글 <span class="comment-count">{{ .Params.comments | default "0" }}</span></h2>
+    
+    <div class="comment-form">
+        <textarea placeholder="댓글을 작성해주세요." rows="4"></textarea>
+        <button type="submit" class="submit-btn">댓글 작성</button>
+    </div>
+    
+    <div class="comments-list">
+        <!-- 댓글은 JavaScript로 동적 로드 -->
+    </div>
+    
+    <button class="load-more-comments">더 많은 댓글 보기</button>
+</section>
+{{ end }}
