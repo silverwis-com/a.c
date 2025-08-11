@@ -7,12 +7,12 @@
                 <li>
                     <a href="{{ .URL }}" class="link_tit">{{ .Name }} 
                         {{ if eq .Name "분류 전체보기" }}
-                        <span class="c_cnt">({{ len (where .Site.RegularPages "Type" "posts") }})</span>
+                        <span class="c_cnt">({{ len (where $.Site.RegularPages "Type" "posts") }})</span>
                         {{ end }}
                     </a>
                     {{ if eq .Name "분류 전체보기" }}
                     <ul class="category_list">
-                        {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+                        {{ range $name, $taxonomy := $.Site.Taxonomies.categories }}
                         <li>
                             <a href="{{ "/categories/" | relLangURL }}{{ $name | urlize }}" class="link_item">
                                 {{ $name | title }} <span class="c_cnt">({{ $taxonomy.Count }})</span>
