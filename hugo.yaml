@@ -1,0 +1,36 @@
+baseURL: 'https://yoursite.netlify.app'
+languageCode: 'ko-kr'
+title: 'Open Study'
+theme: ''
+
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    style: github
+    lineNos: true
+
+params:
+  description: '학습과 성장을 위한 블로그'
+  author: '니콜nicole'
+  
+menu:
+  main:
+    - name: "분류 전체보기"
+      url: "/"
+      weight: 1
+    - name: "English Study"
+      url: "/categories/english-study/"
+      weight: 2
+    - name: "Money Study"
+      url: "/categories/money-study/"
+      weight: 3
+
+taxonomies:
+  category: categories
+  tag: tags
