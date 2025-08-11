@@ -1,0 +1,34 @@
+{{ define "main" }}
+<div class="list-page">
+    <header class="list-header">
+        <h1>{{ .Title }}</h1>
+        {{ if .Params.description }}
+        <p class="list-description">{{ .Params.description }}</p>
+        {{ end }}
+    </header>
+    
+    <main class="main-content">
+        {{ range .Pages }}
+        <article class="post-item">
+            <div class="post-header">
+                <h2 class="post-title">
+                    <a href="{{ .Permalink }}">{{ .Title }}</a>
+                </h2>
+                <div class="post-meta">
+                    <span class="author">{{ .Params.author | default $.Site.Params.author }}</span>
+                    <span class="date">{{ .Date.Format "2006.01.02" }}</span>
+                </div>
+            </div>
+            <div class="post-content">
+                <p>{{ .Summary | truncate 150 }}</p>
+            </div>
+            {{ if .Params.image }}
+            <div class="post-image">
+                <img src="{{ .Params.image | relURL }}" alt="{{ .Title }}">
+            </div>
+            {{ end }}
+        </article>
+        {{ end }}
+    </main>
+</div>
+{{ end }}
