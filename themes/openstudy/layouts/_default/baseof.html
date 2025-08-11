@@ -31,13 +31,13 @@
 </head>
 <body id="{{ if .IsHome }}tt-body-index{{ else }}tt-body-post{{ end }}" class="color-gray post-type-text">
     <div id="wrap">
-        {{ partial "header.html" . }}
+        {{ partial "header" . }}
         
         <div class="container">
             {{ block "main" . }}{{ end }}
         </div>
         
-        {{ partial "footer.html" . }}
+        {{ partial "footer" . }}
     </div>
     
     <script src="{{ "js/script.js" | relURL }}"></script>
