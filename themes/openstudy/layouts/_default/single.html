@@ -1,0 +1,73 @@
+{{ define "main" }}
+<!-- 브레드크럼 -->
+<nav class="breadcrumb">
+    <a href="{{ .Site.BaseURL }}">Home</a> 
+    <span class="separator">></span>
+    {{ range .Params.categories }}
+    <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+    <span class="separator">></span>
+    {{ end }}
+    <span class="current">{{ .Title }}</span>
+</nav>
+
+<!-- 포스트 콘텐츠 -->
+<article class="post-detail">
+    <header class="post-header">
+        {{ if .Params.categories }}
+        <div class="post-category">
+            {{ range .Params.categories }}
+            <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}" class="category-link">{{ . }}</a>
+            {{ end }}
+        </div>
+        {{ end }}
+        
+        <h1 class="post-title">{{ .Title }}</h1>
+        
+        <div class="post-meta">
+            <div class="author-info">
+                <img src="{{ .Params.avatar | default "https://via.placeholder.com/40x40" }}" alt="{{ .Params.author }}" class="author-avatar">
+                <div class="author-details">
+                    <span class="author-name">{{ .Params.author | default .Site.Params.author }}</span>
+                    <time class="post-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02 15:04" }}</time>
+                </div>
+            </div>
+            <div class="post-stats">
+                <span class="view-count">조회수 {{ .Params.views | default "0" }}</span>
+                <span class="comment-count">댓글 {{ .Params.comments | default "0" }}</span>
+            </div>
+        </div>
+    </header>
+    
+    <div class="post-content">
+        {{ if .Params.image }}
+        <div class="featured-image">
+            <img src="{{ .Params.image | relURL }}" alt="{{ .Title }}" class="main-image">
+        </div>
+        {{ end }}
+        
+        <div class="content-body">
+            {{ .Content }}
+        </div>
+    </div>
+    
+    <footer class="post-footer">
+        {{ if .Params.tags }}
+        <div class="post-tags">
+            {{ range .Params.tags }}
+            <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="tag">#{{ . }}</a>
+            {{ end }}
+        </div>
+        {{ end }}
+        
+        <div class="post-actions">
+            <button class="action-btn like-btn">
+                <span class="icon">👍</span>
+                좋아요 <span class="count">{{ .Params.likes | default "0" }}</span>
+            </button>
+            <button class="action-btn share-btn">
+                <span class="icon">📤</span>
+                공유
+            </button>
+        </div>
+    </footer>
+</article>
