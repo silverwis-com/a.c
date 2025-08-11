@@ -1,0 +1,12 @@
+name = "openstudy"
+license = "MIT"
+licenselink = "https://github.com/yourname/openstudy/blob/main/LICENSE"
+description = "학습과 성장을 위한 블로그 테마"
+homepage = "https://github.com/yourname/openstudy"
+tags = ["blog", "clean", "minimal", "responsive"]
+features = ["blog", "comments", "search"]
+min_version = "0.146.0"
+
+[author]
+  name = "니콜nicole"
+  homepage = "https://yoursite.com"
