@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}" data-phocus-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    
+    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
+    <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+    
+    <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+    <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
+    <meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+    <meta property="og:site_name" content="{{ .Site.Title }}">
+    {{ if .Params.image }}
+    <meta property="og:image" content="{{ .Params.image | absURL }}">
+    {{ end }}
+    
+    {{ if .IsPage }}
+    <meta name="author" content="{{ .Params.author | default .Site.Params.author }}">
+    {{ end }}
+    
+    <link rel="stylesheet" href="{{ "css/styles.css" | relURL }}">
+    {{ if .IsPage }}
+    <link rel="stylesheet" href="{{ "css/post-styles.css" | relURL }}">
+    {{ end }}
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body id="{{ if .IsHome }}tt-body-index{{ else }}tt-body-post{{ end }}" class="color-gray post-type-text">
+    <div id="wrap">
+        {{ partial "header.html" . }}
+        
+        <div class="container">
+            {{ block "main" . }}{{ end }}
+        </div>
+        
+        {{ partial "footer.html" . }}
+    </div>
+    
+    <script src="{{ "js/script.js" | relURL }}"></script>
+    {{ if .IsPage }}
+    <script src="{{ "js/post-script.js" | relURL }}"></script>
+    {{ end }}
+</body>
+</html>
