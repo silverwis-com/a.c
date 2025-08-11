@@ -4,7 +4,7 @@
     <a href="{{ .Site.BaseURL }}">Home</a> 
     <span class="separator">></span>
     {{ range .Params.categories }}
-    <a href="{{ printf "/categories/%s/" (. | urlize) | relURL }}">{{ . }}</a>
+    <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
     <span class="separator">></span>
     {{ end }}
     <span class="current">{{ .Title }}</span>
@@ -16,7 +16,7 @@
         {{ if .Params.categories }}
         <div class="post-category">
             {{ range .Params.categories }}
-            <a href="{{ printf "/categories/%s/" (. | urlize) | relURL }}" class="category-link">{{ . }}</a>
+            <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}" class="category-link">{{ . }}</a>
             {{ end }}
         </div>
         {{ end }}
@@ -54,7 +54,7 @@
         {{ if .Params.tags }}
         <div class="post-tags">
             {{ range .Params.tags }}
-            <a href="{{ printf "/tags/%s/" (. | urlize) | relURL }}" class="tag">#{{ . }}</a>
+            <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="tag">#{{ . }}</a>
             {{ end }}
         </div>
         {{ end }}
