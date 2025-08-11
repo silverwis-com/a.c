@@ -1,6 +1,6 @@
 baseURL: 'https://yoursite.netlify.app'
 languageCode: 'ko-kr'
-title: 'Siverwis Blog'
+title: 'Silverwis Blog'
 theme: 'openstudy'      
 
 buildDrafts: false
@@ -16,19 +16,19 @@ markup:
     lineNos: true
 
 params:
-  description: '학습과 성장을 위한 블로그'
-  author: '니콜nicole'
+  description: '복지 정보를 위한 블로그'
+  author: 'Silverwis'
   
 menu:
   main:
     - name: "분류 전체보기"
       url: "/"
       weight: 1
-    - name: "English Study"
-      url: "/categories/english-study/"
+    - name: "복지정보"
+      url: "/categories/welfare/"
       weight: 2
-    - name: "Money Study"
-      url: "/categories/money-study/"
+    - name: "최신정보"
+      url: "/categories/lastist/"
       weight: 3
 
 taxonomies:
