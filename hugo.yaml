@@ -1,7 +1,7 @@
 baseURL: 'https://yoursite.netlify.app'
 languageCode: 'ko-kr'
 title: 'Open Study'
-theme: ''
+theme: 'openstudy'      
 
 buildDrafts: false
 buildFuture: false
