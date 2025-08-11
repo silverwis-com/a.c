@@ -8,5 +8,5 @@ features = ["blog", "comments", "search"]
 min_version = "0.146.0"
 
 [author]
-  name = "니콜nicole"
-  homepage = "https://yoursite.com"
+  name = "Siverwis"
+  homepage = "https://www.blog.silverwis.com"
