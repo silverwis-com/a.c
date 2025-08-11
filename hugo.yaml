@@ -1,6 +1,6 @@
 baseURL: 'https://yoursite.netlify.app'
 languageCode: 'ko-kr'
-title: 'Open Study'
+title: 'Siverwis Blog'
 theme: 'openstudy'      
 
 buildDrafts: false
