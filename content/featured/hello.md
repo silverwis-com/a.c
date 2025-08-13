@@ -1,6 +1,7 @@
 ---
 title: "생활에 도움되는 추천 상품 정보"
 date: 2025-08-13
+featured: true
 categories: ["쇼핑", "추천"]
 tags: ["쿠팡", "생활용품", "추천상품"]
 description: "일상생활에 도움이 되는 유용한 상품들을 소개해드립니다."
