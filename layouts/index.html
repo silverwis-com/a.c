@@ -1,3 +1,22 @@
-{{ range .Site.Sections.featured.RegularPages }}
+{{- define "main" }}
 
-{{ end }}
+{{- if .Site.Params.homeInfoParams }}
+<article class="first-entry home-info">
+    <header class="entry-header">
+        <h1>{{ .Site.Params.homeInfoParams.Title | markdownify }}</h1>
+    </header>
+    <div class="entry-content">
+        <p>{{ .Site.Params.homeInfoParams.Content | markdownify }}</p>
+    </div>
+</article>
+{{- end }}
+
+{{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+
+{{- if and (.Site.Params.hidePostsList | default false) (not .Site.Params.showFeaturedOnly) }}
+<!-- 포스트 목록을 표시하지 않음 -->
+{{- else }}
+<!-- 기존 포스트 목록 표시 코드 (필요시) -->
+{{- end }}
+
+{{- end }}{{/* end main */}}
