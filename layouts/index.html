@@ -1,18 +1,74 @@
-{{- if .Site.Params.showFeaturedOnly }}
-{{- $featuredPages := where site.RegularPages "Params.featured" "eq" true }}
-{{- range $featuredPages }}
-<article class="post-entry">
+{{- define "main" }}
+
+{{- if .Site.Params.homeInfoParams }}
+<article class="first-entry home-info">
     <header class="entry-header">
-        <h2>
-            <a href="{{ .Permalink }}">{{ .Title }}</a>
-        </h2>
+        <h1>{{ .Site.Params.homeInfoParams.Title | markdownify }}</h1>
     </header>
     <div class="entry-content">
-        <p>{{ .Summary }}</p>
+        <p>{{ .Site.Params.homeInfoParams.Content | markdownify }}</p>
     </div>
     <footer class="entry-footer">
-        <time>{{ .Date.Format (.Site.Params.DateFormat | default "January 2, 2006") }}</time>
+        <div class="home-buttons">
+            {{- if .Site.Params.showFeaturedPosts }}
+            <a href="#featured" class="btn">추천 게시글 보기</a>
+            {{- end }}
+        </div>
     </footer>
 </article>
 {{- end }}
+
+{{- if .Site.Params.showFeaturedOnly }}
+{{- $featuredPages := where site.RegularPages "Params.featured" "eq" true }}
+{{- if $featuredPages }}
+<section id="featured" class="featured-posts">
+    <h2>추천 게시글</h2>
+    {{- range $featuredPages }}
+    <article class="post-entry">
+        <header class="entry-header">
+            <h3>
+                <a href="{{ .Permalink }}">{{ .Title }}</a>
+            </h3>
+        </header>
+        <div class="entry-content">
+            <p>{{ .Summary | truncate 150 }}</p>
+        </div>
+        <footer class="entry-footer">
+            <time>{{ .Date.Format (.Site.Params.DateFormat | default "January 2, 2006") }}</time>
+            {{- if .Params.categories }}
+            <div class="categories">
+                {{- range .Params.categories }}
+                <span class="category">{{ . }}</span>
+                {{- end }}
+            </div>
+            {{- end }}
+        </footer>
+    </article>
+    {{- end }}
+</section>
 {{- end }}
+{{- else if not .Site.Params.hidePostsList }}
+<!-- 기본 포스트 목록 표시 (현재는 숨김 설정) -->
+{{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+{{- if $pages }}
+<section class="posts-list">
+    {{- range $pages }}
+    <article class="post-entry">
+        <header class="entry-header">
+            <h2>
+                <a href="{{ .Permalink }}">{{ .Title }}</a>
+            </h2>
+        </header>
+        <div class="entry-content">
+            <p>{{ .Summary | truncate 150 }}</p>
+        </div>
+        <footer class="entry-footer">
+            <time>{{ .Date.Format (.Site.Params.DateFormat | default "January 2, 2006") }}</time>
+        </footer>
+    </article>
+    {{- end }}
+</section>
+{{- end }}
+{{- end }}
+
+{{- end }}{{/* end main */}}
