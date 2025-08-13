@@ -1,0 +1,62 @@
+/* 홈페이지에서 헤더 제목과 네비게이션 숨기기 */
+.home .header .logo,
+.home .header h1,
+.home .header .main-nav ul,
+.home .nav {
+    display: none !important;
+}
+
+/* 홈페이지 커스텀 스타일 */
+.home-info {
+    text-align: center;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.info-message {
+    text-align: center;
+    padding: 2rem;
+    color: var(--secondary);
+    font-style: italic;
+}
+
+.page-header {
+    margin-bottom: 2rem;
+}
+
+.page-header h2 {
+    text-align: center;
+    color: var(--primary);
+}
+
+/* PaperMod 기본 post-entry 스타일 조정 */
+.post-entry {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--entry);
+}
+
+.post-entry:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.post-entry .entry-header h2 a,
+.post-entry .entry-header h3 a {
+    text-decoration: none;
+    color: var(--primary);
+}
+
+.post-entry .entry-header h2 a:hover,
+.post-entry .entry-header h3 a:hover {
+    text-decoration: underline;
+}
+
+/* 홈페이지에서 기본 PaperMod 요소들 숨기기 */
+.home .main .main-header,
+.home .main .page-header:not(.custom-header) {
+    display: none;
+}
