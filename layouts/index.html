@@ -14,23 +14,19 @@
 </article>
 
 {{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
-{{- $limit := site.Config.Services.RSS.Limit }}
-{{- if (eq $limit 0) }}
-{{- $limit = 65536 }}
-{{- end }}
-
 {{- $featuredPages := where $pages "Params.featured" "eq" true }}
 
 {{- if $featuredPages }}
 <header class="page-header">
     <h2>추천 게시글</h2>
 </header>
-{{- range $featuredPages | first $limit }}
+{{- range $featuredPages }}
 {{- .Render "summary" }}
 {{- end }}
 {{- else }}
-<!-- 일반 포스트는 표시하지 않음 -->
+<!-- featured 포스트가 없을 경우 -->
 <div class="info-message">
+    <p>추천 게시글을 준비 중입니다.</p>
     <p>직접 URL로 게시글에 접근해주세요.</p>
 </div>
 {{- end }}
