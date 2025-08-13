@@ -56,15 +56,6 @@ buildExpired = false
     Title = "실버위즈 복지정보"
     Content = "누구나 쉽게 찾는 복지 혜택 정보를 제공합니다. 국가지원 혜택부터 지역별 복지제도까지 한눈에 확인하세요."
   
-  # 소셜 아이콘
-  [[params.socialIcons]]
-    name = "github"
-    url = "https://github.com/silverwis-com"
-  
-  [[params.socialIcons]]
-    name = "email"
-    url = "mailto:info@silverwis.com"
-  
   # 검색 설정
   [params.fuseOpts]
     isCaseSensitive = false
