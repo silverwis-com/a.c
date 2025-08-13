@@ -1,104 +1,48 @@
-baseURL = "https://a.c.silverwis.com"
-languageCode = "ko-kr"
-title = "실버위즈 복지정보"
-copyright = "실버위즈 복지정보"
-theme = "PaperMod"
+{{- define "main" }}
 
-[pagination]
-  pagerSize = 5
+<article class="first-entry home-info">
+    <header class="entry-header">
+        <h1>{{ site.Params.title | default site.Title }}</h1>
+    </header>
+    <div class="entry-content">
+        <p>{{ site.Params.description }}</p>
+    </div>
+</article>
 
-enableRobotsTXT = true
-buildDrafts = false
-buildFuture = false
-buildExpired = false
+{{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+{{- $featuredPages := where $pages "Params.featured" "eq" true }}
 
-[minify]
-  disableXML = true
-  minifyOutput = true
+{{- if $featuredPages }}
+<header class="page-header">
+    <h2>추천 게시글</h2>
+</header>
+{{- range $featuredPages }}
+<article class="post-entry">
+    <header class="entry-header">
+        <h2>
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+        </h2>
+    </header>
+    <div class="entry-content">
+        <p>{{ .Summary }}</p>
+    </div>
+    <footer class="entry-footer">
+        <time>{{ .Date.Format (.Site.Params.DateFormat | default "January 2, 2006") }}</time>
+        {{- if .Params.categories }}
+        <div class="categories">
+            {{- range .Params.categories }}
+            <span class="category">{{ . }}</span>
+            {{- end }}
+        </div>
+        {{- end }}
+    </footer>
+</article>
+{{- end }}
+{{- else }}
+<div class="info-message">
+    <p>추천 게시글을 준비 중입니다.</p>
+    <p>직접 URL로 게시글에 접근해주세요.</p>
+</div>
+{{- end }}
 
-[params]
-  env = "production"
-  title = "실버위즈 복지정보"
-  description = "누구나 쉽게 찾는 복지 혜택 정보"
-  keywords = ["복지정보", "혜택", "실버위즈", "노인복지", "사회보장"]
-  author = "실버위즈"
-  
-  # 메인 섹션 설정
-  mainSections = ["posts", "featured"]
-  
-  # Google AdSense ID
-  googleAdsense = "ca-pub-1279348640476088"
-  
-  # 날짜 형식
-  DateFormat = "2006년 1월 2일"
-  
-  # 테마 설정
-  defaultTheme = "auto"
-  disableThemeToggle = false
-  
-  # 페이지 설정
-  ShowReadingTime = true
-  ShowShareButtons = true
-  ShowPostNavLinks = true
-  ShowBreadCrumbs = true
-  ShowCodeCopyButtons = true
-  ShowWordCount = true
-  ShowRssButtonInSectionTermList = false
-  UseHugoToc = true
-  disableSpecial1stPost = false
-  disableScrollToTop = false
-  
-  # 메타 정보
-  comments = false
-  hidemeta = false
-  hideSummary = false
-  showtoc = false
-  tocopen = false
-  
-  # 검색 설정
-  [params.fuseOpts]
-    isCaseSensitive = false
-    shouldSort = true
-    location = 0
-    distance = 1000
-    threshold = 0.4
-    minMatchCharLength = 0
-    keys = ["title", "permalink", "summary", "content"]
-
-# 메뉴에서 카테고리, 태그, 검색 제거
-[[menu.main]]
-  identifier = "home"
-  name = "🏠 홈"
-  url = "/"
-  weight = 10
-
-[[menu.main]]
-  identifier = "about"
-  name = "ℹ️ 소개"
-  url = "/about/"
-  weight = 40
-
-# 분류 체계
-[taxonomies]
-  category = "categories"
-  tag = "tags"
-
-# 출력 형식
-[outputs]
-  home = ["HTML", "RSS", "JSON"]
-
-# RSS 설정
-[services.rss]
-  limit = 10
-
-# 마크업 설정
-[markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
-  [markup.highlight]
-    noClasses = false
-    codeFences = true
-    guessSyntax = true
-    lineNos = true
-    style = "github"
+{{- end }}{{/* end main */}}
