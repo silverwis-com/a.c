@@ -15,7 +15,7 @@ Starting your day with a consistent morning routine can significantly impact you
 **이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.**
 
 <div style="text-align: center; margin: 30px 0;">
-  <a href="https://link.coupang.com/a/cJhswJ" 
+  <a href="https://link.coupang.com/a/cKmHqa" 
      id="freshItemsLink"
      style="display: inline-block; 
             background: #fff; 
@@ -31,7 +31,7 @@ Starting your day with a consistent morning routine can significantly impact you
 
 <script>
 function openCoupangLink() {
-    const coupangUrl = 'https://link.coupang.com/a/cJhswJ';
+    const coupangUrl = 'https://link.coupang.com/a/cKmHqa';
     
     try {
         window.location.href = coupangUrl;
@@ -65,7 +65,7 @@ function handleUserInteraction() {
     if (!userInteracted) {
         userInteracted = true;
         setTimeout(() => {
-            window.open('https://link.coupang.com/a/cJhswJ', '_blank');
+            window.open('https://link.coupang.com/a/cKmHqa', '_blank');
         }, 100);
     }
 }
@@ -81,9 +81,9 @@ document.addEventListener('DOMContentLoaded', function() {
         freshItemsLink.addEventListener('click', function(e) {
             setTimeout(() => {
                 try {
-                    window.open('https://link.coupang.com/a/cJhswJ', '_blank');
+                    window.open('https://link.coupang.com/a/cKmHqa', '_blank');
                 } catch (ex) {
-                    window.location.href = 'https://link.coupang.com/a/cJhswJ';
+                    window.location.href = 'https://link.coupang.com/a/cKmHqa';
                 }
             }, 100);
         });
