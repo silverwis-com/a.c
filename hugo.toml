@@ -23,10 +23,30 @@ buildExpired = false
   keywords = ["복지정보", "혜택", "실버위즈", "노인복지", "사회보장"]
   author = "실버위즈"
   
-  # 홈페이지에서 포스트 목록 숨기기
-  hidePostsList = true
-  # 특정 포스트만 표시할지 결정
-  showFeaturedOnly = false
+  # 메인 섹션 설정 (posts와 featured 모두 인식)
+  mainSections = ["posts", "featured"]
+  
+  # PaperMod 모드 설정 - homeInfoParams 대신 profileMode 사용
+  profileMode = true
+  
+  # 프로필 모드 설정
+  [params.profileMode]
+    enabled = true
+    title = "실버위즈 복지정보"
+    subtitle = "누구나 쉽게 찾는 복지 혜택 정보를 제공합니다"
+    # imageUrl = "/images/profile.jpg"  # 선택사항
+    # imageTitle = "Profile Image"      # 선택사항
+    buttons = [
+      {
+        name = "추천 게시글",
+        url = "/posts/"
+      }
+    ]
+  
+  # homeInfoParams 제거 또는 주석처리
+  # [params.homeInfoParams]
+  #   Title = "실버위즈 복지정보"
+  #   Content = "누구나 쉽게 찾는 복지 혜택 정보를 제공합니다. 국가지원 혜택부터 지역별 복지제도까지 한눈에 확인하세요."
   
   # Google AdSense ID
   googleAdsense = "ca-pub-1279348640476088"
