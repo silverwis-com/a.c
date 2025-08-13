@@ -1,74 +1,40 @@
 {{- define "main" }}
 
-{{- if .Site.Params.homeInfoParams }}
+{{- if (and site.Params.profileMode.enabled site.Params.profileMode) }}
+{{- partial "index_profile.html" . }}
+{{- else }}
+
 <article class="first-entry home-info">
     <header class="entry-header">
-        <h1>{{ .Site.Params.homeInfoParams.Title | markdownify }}</h1>
+        <h1>{{ site.Params.title | default site.Title }}</h1>
     </header>
     <div class="entry-content">
-        <p>{{ .Site.Params.homeInfoParams.Content | markdownify }}</p>
+        <p>{{ site.Params.description }}</p>
     </div>
-    <footer class="entry-footer">
-        <div class="home-buttons">
-            {{- if .Site.Params.showFeaturedPosts }}
-            <a href="#featured" class="btn">추천 게시글 보기</a>
-            {{- end }}
-        </div>
-    </footer>
 </article>
+
+{{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+{{- $limit := site.Config.Services.RSS.Limit }}
+{{- if (eq $limit 0) }}
+{{- $limit = 65536 }}
 {{- end }}
 
-{{- if .Site.Params.showFeaturedOnly }}
-{{- $featuredPages := where site.RegularPages "Params.featured" "eq" true }}
+{{- $featuredPages := where $pages "Params.featured" "eq" true }}
+
 {{- if $featuredPages }}
-<section id="featured" class="featured-posts">
+<header class="page-header">
     <h2>추천 게시글</h2>
-    {{- range $featuredPages }}
-    <article class="post-entry">
-        <header class="entry-header">
-            <h3>
-                <a href="{{ .Permalink }}">{{ .Title }}</a>
-            </h3>
-        </header>
-        <div class="entry-content">
-            <p>{{ .Summary | truncate 150 }}</p>
-        </div>
-        <footer class="entry-footer">
-            <time>{{ .Date.Format (.Site.Params.DateFormat | default "January 2, 2006") }}</time>
-            {{- if .Params.categories }}
-            <div class="categories">
-                {{- range .Params.categories }}
-                <span class="category">{{ . }}</span>
-                {{- end }}
-            </div>
-            {{- end }}
-        </footer>
-    </article>
-    {{- end }}
-</section>
+</header>
+{{- range $featuredPages | first $limit }}
+{{- .Render "summary" }}
 {{- end }}
-{{- else if not .Site.Params.hidePostsList }}
-<!-- 기본 포스트 목록 표시 (현재는 숨김 설정) -->
-{{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
-{{- if $pages }}
-<section class="posts-list">
-    {{- range $pages }}
-    <article class="post-entry">
-        <header class="entry-header">
-            <h2>
-                <a href="{{ .Permalink }}">{{ .Title }}</a>
-            </h2>
-        </header>
-        <div class="entry-content">
-            <p>{{ .Summary | truncate 150 }}</p>
-        </div>
-        <footer class="entry-footer">
-            <time>{{ .Date.Format (.Site.Params.DateFormat | default "January 2, 2006") }}</time>
-        </footer>
-    </article>
-    {{- end }}
-</section>
+{{- else }}
+<!-- 일반 포스트는 표시하지 않음 -->
+<div class="info-message">
+    <p>직접 URL로 게시글에 접근해주세요.</p>
+</div>
 {{- end }}
+
 {{- end }}
 
 {{- end }}{{/* end main */}}
