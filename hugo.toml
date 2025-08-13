@@ -3,6 +3,7 @@ languageCode = "ko-kr"
 title = "실버위즈 복지정보"
 copyright = "실버위즈 복지정보"
 theme = "PaperMod"
+
 [pagination]
   pagerSize = 5
 
@@ -22,6 +23,11 @@ buildExpired = false
   keywords = ["복지정보", "혜택", "실버위즈", "노인복지", "사회보장"]
   author = "실버위즈"
   
+  # 홈페이지에서 포스트 목록 숨기기
+  hidePostsList = true
+  # 특정 포스트만 표시할지 결정
+  showFeaturedOnly = false
+  
   # Google AdSense ID
   googleAdsense = "ca-pub-1279348640476088"
   
@@ -29,7 +35,7 @@ buildExpired = false
   DateFormat = "2006년 1월 2일"
   
   # 테마 설정
-  defaultTheme = "auto" # dark, light, auto
+  defaultTheme = "auto"
   disableThemeToggle = false
   
   # 페이지 설정
@@ -39,9 +45,9 @@ buildExpired = false
   ShowBreadCrumbs = true
   ShowCodeCopyButtons = true
   ShowWordCount = true
-  ShowRssButtonInSectionTermList = true
+  ShowRssButtonInSectionTermList = false
   UseHugoToc = true
-  disableSpecial1stPost = false
+  disableSpecial1stPost = true
   disableScrollToTop = false
   
   # 메타 정보
@@ -66,30 +72,12 @@ buildExpired = false
     minMatchCharLength = 0
     keys = ["title", "permalink", "summary", "content"]
 
-# 메뉴 설정
+# 메뉴 설정 - 카테고리, 태그, 검색 메뉴 제거
 [[menu.main]]
   identifier = "home"
   name = "🏠 홈"
   url = "/"
   weight = 10
-
-[[menu.main]]
-  identifier = "categories"
-  name = "📂 카테고리"
-  url = "/categories/"
-  weight = 20
-
-[[menu.main]]
-  identifier = "tags"
-  name = "🏷️ 태그"
-  url = "/tags/"
-  weight = 25
-
-[[menu.main]]
-  identifier = "search"
-  name = "🔍 검색"
-  url = "/search/"
-  weight = 30
 
 [[menu.main]]
   identifier = "about"
