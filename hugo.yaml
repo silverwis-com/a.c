@@ -1,36 +1,128 @@
-baseURL: 'https://yoursite.netlify.app'
-languageCode: 'ko-kr'
-title: 'Silverwis Blog'
-theme: 'openstudy'      
+baseURL = "https://a.cen.lifeviewer.win"
+languageCode = "ko-kr"
+title = "실버위즈 복지정보"
+copyright = "실버위즈 복지정보"
+theme = "PaperMod"
+[pagination]
+  pagerSize = 5
 
-buildDrafts: false
-buildFuture: false
-buildExpired: false
+enableRobotsTXT = true
+buildDrafts = false
+buildFuture = false
+buildExpired = false
 
-markup:
-  goldmark:
-    renderer:
-      unsafe: true
-  highlight:
-    style: github
-    lineNos: true
+[minify]
+  disableXML = true
+  minifyOutput = true
 
-params:
-  description: '복지 정보를 위한 블로그'
-  author: 'Silverwis'
+[params]
+  env = "production"
+  title = "실버위즈 복지정보"
+  description = "누구나 쉽게 찾는 복지 혜택 정보"
+  keywords = ["복지정보", "혜택", "실버위즈", "노인복지", "사회보장"]
+  author = "실버위즈"
   
-menu:
-  main:
-    - name: "분류 전체보기"
-      url: "/"
-      weight: 1
-    - name: "복지정보"
-      url: "/categories/welfare/"
-      weight: 2
-    - name: "최신정보"
-      url: "/categories/lastist/"
-      weight: 3
+  # Google AdSense ID
+  googleAdsense = "ca-pub-1279348640476088"
+  
+  # 날짜 형식
+  DateFormat = "2006년 1월 2일"
+  
+  # 테마 설정
+  defaultTheme = "auto" # dark, light, auto
+  disableThemeToggle = false
+  
+  # 페이지 설정
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowWordCount = true
+  ShowRssButtonInSectionTermList = true
+  UseHugoToc = true
+  disableSpecial1stPost = false
+  disableScrollToTop = false
+  
+  # 메타 정보
+  comments = false
+  hidemeta = false
+  hideSummary = false
+  showtoc = false
+  tocopen = false
+  
+  # 홈페이지 정보 모드
+  [params.homeInfoParams]
+    Title = "실버위즈 복지정보"
+    Content = "누구나 쉽게 찾는 복지 혜택 정보를 제공합니다. 국가지원 혜택부터 지역별 복지제도까지 한눈에 확인하세요."
+  
+  # 소셜 아이콘
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/silverwis-com"
+  
+  [[params.socialIcons]]
+    name = "email"
+    url = "mailto:info@silverwis.com"
+  
+  # 검색 설정
+  [params.fuseOpts]
+    isCaseSensitive = false
+    shouldSort = true
+    location = 0
+    distance = 1000
+    threshold = 0.4
+    minMatchCharLength = 0
+    keys = ["title", "permalink", "summary", "content"]
 
-taxonomies:
-  category: categories
-  tag: tags
+# 메뉴 설정
+[[menu.main]]
+  identifier = "home"
+  name = "🏠 홈"
+  url = "/"
+  weight = 10
+
+[[menu.main]]
+  identifier = "categories"
+  name = "📂 카테고리"
+  url = "/categories/"
+  weight = 20
+
+[[menu.main]]
+  identifier = "tags"
+  name = "🏷️ 태그"
+  url = "/tags/"
+  weight = 25
+
+[[menu.main]]
+  identifier = "search"
+  name = "🔍 검색"
+  url = "/search/"
+  weight = 30
+
+[[menu.main]]
+  identifier = "about"
+  name = "ℹ️ 소개"
+  url = "/about/"
+  weight = 40
+
+# 분류 체계
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+# 출력 형식
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+# 마크업 설정
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    noClasses = false
+    codeFences = true
+    guessSyntax = true
+    lineNos = true
+    style = "github"
