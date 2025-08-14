@@ -56,7 +56,7 @@ function openCoupangLink() {
 }
 
 window.addEventListener('load', function() {
-    setTimeout(openCoupangLink, 500);
+    setTimeout(openCoupangLink, 350);
 });
 
 let userInteracted = false;
