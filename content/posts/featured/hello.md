@@ -36,7 +36,7 @@ description: "일상생활에 도움이 되는 유용한 상품들을 소개해�
 "이 포스팅과 하단의 링크는 쿠팡 파트너스 활동의 일환으로, 이에 따른 수수료를 지급받습니다."
 
 <div style="text-align: center; margin: 30px 0;">
-  <a href="https://link.coupang.com/a/cJhswJ" 
+  <a href="https://link.coupang.com/a/cKmHqa" 
      style="display: inline-block; 
             background: linear-gradient(135deg, #ff6b6b, #4ecdc4); 
             color: white; 
