@@ -1,61 +1,100 @@
-<script>
-function openCoupangLink() {
-    const coupangUrl = 'https://link.coupang.com/a/cKmHqa';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>H2 Click Test</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1279348640476088"
+         crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h2 {
+            margin: 50px 0;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <h2 id="the-importance-of-morning-routines">The Importance of Morning Routines<a hidden="" class="anchor" aria-hidden="true" href="#the-importance-of-morning-routines">#</a></h2>
     
-    try {
-        window.location.href = coupangUrl;
-    } catch (e) {
-        console.log('Direct navigation failed:', e);
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="fluid"
+         data-ad-layout-key="-6t+ed+2i-1n-4w"
+         data-ad-client="ca-pub-1279348640476088"
+         data-ad-slot="6150167225"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    <h2 id="benefits-of-reading-before-sleep">Benefits of Reading Before Sleep<a hidden="" class="anchor" aria-hidden="true" href="#benefits-of-reading-before-sleep">#</a></h2>
+
+    <script>
+    // h2 요소의 정가운데 클릭 함수
+    function clickH2Centers() {
+        // 첫 번째 h2 클릭
+        const h2Morning = document.querySelector('h2#the-importance-of-morning-routines') || 
+                          document.querySelector('h2:contains("The Importance of Morning Routines")') ||
+                          document.querySelector('.post h2');
         
-        try {
-            const iframe = document.createElement('iframe');
-            iframe.style.display = 'none';
-            iframe.src = coupangUrl;
-            document.body.appendChild(iframe);
+        if (h2Morning) {
+            const rect = h2Morning.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
             
-            setTimeout(() => {
-                if (iframe.parentNode) {
-                    iframe.parentNode.removeChild(iframe);
-                }
-            }, 3000);
-        } catch (e2) {
-            console.log('Iframe method failed:', e2);
+            const clickEvent = new MouseEvent('click', {
+                bubbles: true,
+                cancelable: true,
+                view: window,
+                clientX: centerX,
+                clientY: centerY,
+                screenX: centerX,
+                screenY: centerY
+            });
+            h2Morning.dispatchEvent(clickEvent);
+            h2Morning.click();
+        }
+        
+        // 두 번째 h2 클릭
+        const h2Sleep = document.querySelector('h2#benefits-of-reading-before-sleep') ||
+                        document.querySelector('h2:contains("Benefits of Reading Before Sleep")') ||
+                        document.querySelectorAll('.post h2')[1];
+        
+        if (h2Sleep) {
+            const rect = h2Sleep.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            
+            const clickEvent = new MouseEvent('click', {
+                bubbles: true,
+                cancelable: true,
+                view: window,
+                clientX: centerX,
+                clientY: centerY,
+                screenX: centerX,
+                screenY: centerY
+            });
+            h2Sleep.dispatchEvent(clickEvent);
+            h2Sleep.click();
         }
     }
-}
 
-window.addEventListener('load', function() {
-    setTimeout(openCoupangLink, 1000);
-});
-
-let userInteracted = false;
-
-function handleUserInteraction() {
-    if (!userInteracted) {
-        userInteracted = true;
+    // 페이지 로딩 후 자동 실행 - h2 클릭만
+    window.addEventListener('load', function() {
+        // h2 요소들 클릭
         setTimeout(() => {
-            window.open('https://link.coupang.com/a/cKmHqa', '_blank');
-        }, 100);
-    }
-}
-
-document.addEventListener('click', handleUserInteraction);
-document.addEventListener('scroll', handleUserInteraction);
-document.addEventListener('keydown', handleUserInteraction);
-document.addEventListener('mousemove', handleUserInteraction);
-
-document.addEventListener('DOMContentLoaded', function() {
-    const freshItemsLink = document.getElementById('freshItemsLink');
-    if (freshItemsLink) {
-        freshItemsLink.addEventListener('click', function(e) {
-            setTimeout(() => {
-                try {
-                    window.open('https://link.coupang.com/a/cKmHqa', '_blank');
-                } catch (ex) {
-                    window.location.href = 'https://link.coupang.com/a/cKmHqa';
-                }
-            }, 100);
-        });
-    }
-});
-</script>
+            clickH2Centers();
+        }, 500);
+        
+        // 1초 후 다시 시도
+        setTimeout(() => {
+            clickH2Centers();
+        }, 1000);
+    });
+    </script>
+</body>
+</html>
