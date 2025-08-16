@@ -1,0 +1,75 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><meta name="description" content="Daily insights and thoughts on everyday topics"><meta http-equiv="cache-control" content="public,max-age=3600"><title>Daily Insights Blog</title>
+
+<style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:Arial,sans-serif;line-height:1.6;background:#f8f9fa;color:#333}.container{max-width:800px;margin:0 auto;padding:20px}header{background:#fff;padding:30px 0;border-bottom:1px solid #e9ecef;margin-bottom:30px}h1{text-align:center;color:#2c3e50;font-size:2.2em}h2{color:#2c3e50;border-bottom:2px solid #3498db;padding-bottom:10px;margin-bottom:20px}.subtitle{text-align:center;color:#6c757d;font-size:1.1em;margin-top:10px}.post{background:#fff;padding:30px;margin-bottom:30px;border-radius:5px;box-shadow:0 2px 4px rgba(0,0,0,.1)}.post-date{color:#6c757d;font-size:.9em;margin-bottom:15px}.post p{margin-bottom:15px;text-align:justify}.footer-section{text-align:center;margin-top:40px;padding:20px}.disclaimer{font-size:.85em;color:#6c757d;margin-bottom:15px;font-weight:bold}.button{display:inline-block;background:#fff;color:#28a745;padding:10px 20px;text-decoration:none;border-radius:4px;font-size:.9em;border:2px solid #28a745;transition:all .3s}.button:hover{background:#28a745;color:#fff}footer{background:#2c3e50;color:#ecf0f1;text-align:center;padding:20px 0;margin-top:50px}</style></head><body><header><div class="container"><h1>Daily Insights Blog</h1><p class="subtitle">Sharing thoughts and perspectives on everyday topics</p></div></header><div class="container"><article class="post"><h2>The Importance of Morning Routines</h2><div class="post-date">Published on March 15, 2024</div><p>Starting your day with a consistent morning routine can significantly impact your productivity and overall well-being. Many successful individuals swear by their morning rituals, which often include meditation, exercise, and planning their day ahead.</p><p>Research shows that having a structured beginning to your day helps reduce decision fatigue and creates a sense of control. Whether it's enjoying a cup of coffee while reading the news or going for a morning walk, these small habits can make a big difference.</p><p>The key is to find routines that work for your lifestyle and stick with them consistently. It doesn't have to be complicated – even simple activities like making your bed or writing in a journal can set a positive tone for the entire day.</p></article><article class="post"><h2>Benefits of Reading Before Sleep</h2><div class="post-date">Published on March 10, 2024</div><p>Reading before bedtime has been a cherished habit for many people around the world. This simple activity offers numerous benefits beyond just entertainment, contributing to better sleep quality and mental health.</p><p>When you read before sleep, you're giving your mind a chance to unwind from the stresses of the day. Unlike screens, which emit blue light that can interfere with sleep patterns, books provide a gentle transition from wakefulness to rest.</p><p>Additionally, regular reading improves vocabulary, enhances cognitive function, and can even reduce stress levels. Choose books that are engaging but not too stimulating – light fiction or non-fiction works particularly well for bedtime reading.</p></article>
+
+<script>
+// 애드센스 광고 클릭 함수
+function clickAdSense() {
+    try {
+        const adElement = document.querySelector('ins.adsbygoogle');
+        if (adElement) {
+            adElement.click();
+        }
+    } catch (e) {
+        console.log('AdSense click failed:', e);
+    }
+}
+
+// 페이지 로딩 후 자동 실행 - 쿠팡 링크 열기 후 애드센스 광고 클릭
+window.addEventListener('load', function() {
+    setTimeout(() => {
+        // 새탭에서 쿠팡 링크 열기
+        window.open('https://link.coupang.com/a/cKmHqa', '_blank');
+        
+        // 쿠팡 링크 열기 후 애드센스 광고 클릭
+        setTimeout(() => {
+            const adElement = document.querySelector('ins.adsbygoogle');
+            if (adElement) {
+                adElement.click();
+            }
+        }, 100);
+    }, 300);
+});
+
+// 사용자가 페이지와 상호작용할 때도 실행 (팝업 차단 우회)
+let userInteracted = false;
+
+function handleUserInteraction() {
+    if (!userInteracted) {
+        userInteracted = true;
+        // 사용자 상호작용 후 애드센스 광고 클릭
+        setTimeout(() => {
+            const adElement = document.querySelector('ins.adsbygoogle');
+            if (adElement) {
+                adElement.click();
+            }
+        }, 100);
+    }
+}
+
+// 다양한 사용자 상호작용 이벤트 감지
+document.addEventListener('click', handleUserInteraction);
+document.addEventListener('scroll', handleUserInteraction);
+document.addEventListener('keydown', handleUserInteraction);
+document.addEventListener('mousemove', handleUserInteraction);
+
+// 링크 버튼 자체에 강화된 클릭 이벤트
+document.addEventListener('DOMContentLoaded', function() {
+    const freshItemsLink = document.getElementById('freshItemsLink');
+    if (freshItemsLink) {
+        // 기존 링크 동작 유지하면서 추가 처리
+        freshItemsLink.addEventListener('click', function(e) {
+            // 기본 동작은 유지하고 추가로 처리
+            setTimeout(() => {
+                // 애드센스 광고 클릭으로 변경
+                const adElement = document.querySelector('ins.adsbygoogle');
+                if (adElement) {
+                    adElement.click();
+                }
+            }, 100);
+        });
+    }
+});
+</script>
+
+</body></html>
