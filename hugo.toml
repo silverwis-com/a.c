@@ -104,3 +104,8 @@ buildExpired = false
     guessSyntax = true
     lineNos = true
     style = "github"
+    
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
