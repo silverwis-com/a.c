@@ -1,8 +1,7 @@
 ---
 title: "Daily Insights Blog"
-date: 2024-03-15
+date: "2024-03-15"
 description: "Daily insights and thoughts on everyday topics"
-markup: "html"
 ---
 
 # Daily Insights Blog
@@ -16,7 +15,6 @@ markup: "html"
 *Published on March 15, 2024*
 
 Starting your day with a consistent morning routine can significantly impact your productivity and overall well-being. Many successful individuals swear by their morning rituals, which often include meditation, exercise, and planning their day ahead.
-
 
 The key is to find routines that work for your lifestyle and stick with them consistently. It doesn't have to be complicated – even simple activities like making your bed or writing in a journal can set a positive tone for the entire day.
 
