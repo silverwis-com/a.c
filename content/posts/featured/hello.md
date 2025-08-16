@@ -6,7 +6,6 @@ categories: ["쇼핑", "추천"]
 tags: ["쿠팡", "생활용품", "추천상품"]
 description: "일상생활에 도움이 되는 유용한 상품들을 소개해드립니다."
 ---
-<p style="color: red; font-size: 24px;">HTML 테스트</p>
 
 ## 실버위즈가 추천하는 생활 필수템 🛍️
 
