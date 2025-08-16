@@ -4,6 +4,10 @@ date: "2024-03-15"
 description: "Daily insights and thoughts on everyday topics"
 ---
 
+## The Importance of Morning Routines
+
+---
+
 <!-- 첫 번째 애드센스 광고 -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1279348640476088"
      crossorigin="anonymous"></script>
