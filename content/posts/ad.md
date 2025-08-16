@@ -17,6 +17,7 @@ markup: "html"
 
 Starting your day with a consistent morning routine can significantly impact your productivity and overall well-being. Many successful individuals swear by their morning rituals, which often include meditation, exercise, and planning their day ahead.
 
+
 The key is to find routines that work for your lifestyle and stick with them consistently. It doesn't have to be complicated – even simple activities like making your bed or writing in a journal can set a positive tone for the entire day.
 
 ---
@@ -27,9 +28,9 @@ The key is to find routines that work for your lifestyle and stick with them con
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-format="fluid"
-     data-ad-layout-key="-ef+6k-30-ac+ty"
+     data-ad-layout-key="-6t+ed+2i-1n-4w"
      data-ad-client="ca-pub-1279348640476088"
-     data-ad-slot="9770704262"></ins>
+     data-ad-slot="6150167225"></ins>
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
