@@ -4,12 +4,6 @@ date: "2024-03-15"
 description: "Daily insights and thoughts on everyday topics"
 ---
 
-# Daily Insights Blog
-
-*Sharing thoughts and perspectives on everyday topics*
-
----
-
 ## The Importance of Morning Routines
 
 ---
