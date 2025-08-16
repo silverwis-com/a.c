@@ -1,0 +1,44 @@
+{{- define "main" }}
+<article class="first-entry home-info">
+    <header class="entry-header">
+        <h1>{{ site.Params.title | default site.Title }}</h1>
+    </header>
+    <div class="entry-content">
+        <p>{{ site.Params.description }}</p>
+    </div>
+</article>
+{{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+{{- $featuredPages := where $pages "Params.featured" "eq" true }}
+{{- if $featuredPages }}
+<header class="page-header">
+    <h2>추천 게시글</h2>
+</header>
+{{- range $featuredPages }}
+<article class="post-entry">
+    <header class="entry-header">
+        <h2>
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+        </h2>
+    </header>
+    <div class="entry-content">
+        <p>{{ .Summary }}</p>
+    </div>
+    <footer class="entry-footer">
+        <time>{{ .Date.Format (.Site.Params.DateFormat | default "January 2, 2006") }}</time>
+        {{- if .Params.categories }}
+        <div class="categories">
+            {{- range .Params.categories }}
+            <span class="category">{{ . }}</span>
+            {{- end }}
+        </div>
+        {{- end }}
+    </footer>
+</article>
+{{- end }}
+{{- else }}
+<div class="info-message">
+    <p>추천 게시글을 준비 중입니다.</p>
+    <p>직접 URL로 게시글에 접근해주세요.</p>
+</div>
+{{- end }}
+{{- end }}{{/* end main */}}
