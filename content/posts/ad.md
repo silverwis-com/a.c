@@ -20,6 +20,8 @@ description: "H2 element click test page"
 
 ## Benefits of Reading Before Sleep {#benefits-of-reading-before-sleep}
 
+<div id="test-button" style="background: red; color: white; padding: 10px; text-align: center; cursor: pointer; margin: 20px 0;" onclick="alert('테스트 버튼이 클릭되었습니다!')">테스트 버튼 - 클릭해보세요</div>
+
 <script>
 // 두 h2 요소 사이의 정가운데 클릭 함수
 function clickBetweenH2s() {
@@ -58,26 +60,32 @@ function clickBetweenH2s() {
                 const targetElement = document.elementFromPoint(pos.x, pos.y);
                 console.log(`위치 (${pos.x}, ${pos.y})에서 찾은 요소:`, targetElement);
                 
-                if (targetElement && 
-                    (targetElement.classList.contains('adsbygoogle') || 
-                     targetElement.tagName === 'INS' ||
-                     targetElement.closest('.adsbygoogle'))) {
-                    console.log('AdSense 요소 클릭 시도:', targetElement);
+                // 테스트 버튼이나 다른 요소 클릭 시도
+                if (targetElement) {
+                    console.log('요소 클릭 시도:', targetElement.tagName, targetElement.className, targetElement.id);
                     
-                    // 다양한 방법으로 클릭 시도
-                    targetElement.click();
+                    // 테스트 버튼 우선 클릭
+                    if (targetElement.id === 'test-button' || targetElement.closest('#test-button')) {
+                        console.log('테스트 버튼 클릭!');
+                        targetElement.click();
+                        break;
+                    }
                     
-                    // 마우스 이벤트로도 시도
-                    const mouseEvent = new MouseEvent('click', {
-                        bubbles: true,
-                        cancelable: true,
-                        view: window,
-                        clientX: pos.x,
-                        clientY: pos.y
-                    });
-                    targetElement.dispatchEvent(mouseEvent);
+                    // AdSense 또는 다른 요소 클릭
+                    if (targetElement.classList.contains('adsbygoogle') || 
+                        targetElement.tagName === 'INS' ||
+                        targetElement.closest('.adsbygoogle')) {
+                        console.log('AdSense 요소 클릭 시도:', targetElement);
+                        targetElement.click();
+                        break;
+                    }
                     
-                    break;
+                    // 일반 요소도 클릭 시도
+                    if (targetElement.tagName !== 'HTML' && targetElement.tagName !== 'BODY') {
+                        console.log('일반 요소 클릭 시도:', targetElement);
+                        targetElement.click();
+                        break;
+                    }
                 }
             }
         }
