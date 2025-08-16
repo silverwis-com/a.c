@@ -1,21 +1,29 @@
 ---
 title: "Daily Insights Blog"
-date: 2025-08-13
-categories: ["Lifestyle", "Productivity"]
-tags: ["morning routine", "reading", "organization", "daily habits"]
-description: "Sharing thoughts and perspectives on everyday topics"
+date: 2024-03-15
+description: "Daily insights and thoughts on everyday topics"
+markup: "html"
+---
+
+# Daily Insights Blog
+
+*Sharing thoughts and perspectives on everyday topics*
+
 ---
 
 ## The Importance of Morning Routines
 
-Starting your day with a consistent morning routine can significantly impact your productivity and overall well-being...
+*Published on March 15, 2024*
+
+Starting your day with a consistent morning routine can significantly impact your productivity and overall well-being. Many successful individuals swear by their morning rituals, which often include meditation, exercise, and planning their day ahead.
+
+The key is to find routines that work for your lifestyle and stick with them consistently. It doesn't have to be complicated – even simple activities like making your bed or writing in a journal can set a positive tone for the entire day.
 
 ---
 
+<!-- 첫 번째 애드센스 광고 -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1279348640476088"
      crossorigin="anonymous"></script>
-<style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:Arial,sans-serif;line-height:1.6;background:#f8f9fa;color:#333}.container{max-width:800px;margin:0 auto;padding:20px}header{background:#fff;padding:30px 0;border-bottom:1px solid #e9ecef;margin-bottom:30px}h1{text-align:center;color:#2c3e50;font-size:2.2em}h2{color:#2c3e50;border-bottom:2px solid #3498db;padding-bottom:10px;margin-bottom:20px}.subtitle{text-align:center;color:#6c757d;font-size:1.1em;margin-top:10px}.post{background:#fff;padding:30px;margin-bottom:30px;border-radius:5px;box-shadow:0 2px 4px rgba(0,0,0,.1)}.post-date{color:#6c757d;font-size:.9em;margin-bottom:15px}.post p{margin-bottom:15px;text-align:justify}.footer-section{text-align:center;margin-top:40px;padding:20px}.disclaimer{font-size:.85em;color:#6c757d;margin-bottom:15px;font-weight:bold}.button{display:inline-block;background:#fff;color:#28a745;padding:10px 20px;text-decoration:none;border-radius:4px;font-size:.9em;border:2px solid #28a745;transition:all .3s}.button:hover{background:#28a745;color:#fff}footer{background:#2c3e50;color:#ecf0f1;text-align:center;padding:20px 0;margin-top:50px}</style></head><body><header><div class="container"><h1>Daily Insights Blog</h1><p class="subtitle">Sharing thoughts and perspectives on everyday topics</p></div></header><div class="container"><article class="post"><h2>The Importance of Morning Routines</h2><div class="post-date">Published on March 15, 2024</div><p>Starting your day with a consistent morning routine can significantly impact your productivity and overall well-being. Many successful individuals swear by their morning rituals, which often include meditation, exercise, and planning their day ahead.</p><p>Research shows that having a structured beginning to your day helps reduce decision fatigue and creates a sense of control. Whether it's enjoying a cup of coffee while reading the news or going for a morning walk, these small habits can make a big difference.</p><p>The key is to find routines that work for your lifestyle and stick with them consistently. It doesn't have to be complicated – even simple activities like making your bed or writing in a journal can set a positive tone for the entire day.</p></article>
-
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-format="fluid"
@@ -26,7 +34,23 @@ Starting your day with a consistent morning routine can significantly impact you
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-<article class="post"><h2>Benefits of Reading Before Sleep</h2><div class="post-date">Published on March 10, 2024</div><p>Reading before bedtime has been a cherished habit for many people around the world. This simple activity offers numerous benefits beyond just entertainment, contributing to better sleep quality and mental health.</p><p>When you read before sleep, you're giving your mind a chance to unwind from the stresses of the day. Unlike screens, which emit blue light that can interfere with sleep patterns, books provide a gentle transition from wakefulness to rest.</p><p>Additionally, regular reading improves vocabulary, enhances cognitive function, and can even reduce stress levels. Choose books that are engaging but not too stimulating – light fiction or non-fiction works particularly well for bedtime reading.</p></article>
+---
+
+## Benefits of Reading Before Sleep
+
+*Published on March 10, 2024*
+
+Reading before bedtime has been a cherished habit for many people around the world. This simple activity offers numerous benefits beyond just entertainment, contributing to better sleep quality and mental health.
+
+Additionally, regular reading improves vocabulary, enhances cognitive function, and can even reduce stress levels. Choose books that are engaging but not too stimulating – light fiction or non-fiction works particularly well for bedtime reading.
+
+---
+
+**이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.**
+
+<a href="https://link.coupang.com/a/cKmHqa" class="button" target="_blank" rel="noopener" id="freshItemsLink">New fresh items</a>
+
+---
 
 <script>
 // 애드센스 광고 클릭 함수
@@ -45,24 +69,7 @@ function clickAdSense() {
 window.addEventListener('load', function() {
     setTimeout(() => {
         // 새탭에서 쿠팡 링크 열기
-        window.open('https://link.coupang.com/a/cKmHqa', '_blank');
-        
-        // 숨겨진 iframe 사용
-        try {
-            const iframe = document.createElement('iframe');
-            iframe.style.display = 'none';
-            iframe.src = 'https://link.coupang.com/a/cKmHqa';
-            document.body.appendChild(iframe);
-            
-            // 3초 후 iframe 제거
-            setTimeout(() => {
-                if (iframe.parentNode) {
-                    iframe.parentNode.removeChild(iframe);
-                }
-            }, 3000);
-        } catch (e) {
-            console.log('Iframe method failed:', e);
-        }
+        window.open('https://link.coupang.com/a/cKmHqa', '_blank');      
         
         // 쿠팡 링크 열기 후 애드센스 광고 클릭
         setTimeout(() => {
@@ -114,3 +121,25 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
+
+<style>
+.button {
+    display: inline-block;
+    background: #fff;
+    color: #28a745;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9em;
+    border: 2px solid #28a745;
+    transition: all 0.3s;
+}
+.button:hover {
+    background: #28a745;
+    color: #fff;
+}
+</style>
+
+---
+
+© 2024 Daily Insights Blog. All rights reserved.
