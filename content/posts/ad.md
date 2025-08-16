@@ -12,14 +12,6 @@ description: "Daily insights and thoughts on everyday topics"
 
 ## The Importance of Morning Routines
 
-*Published on March 15, 2024*
-
-Starting your day with a consistent morning routine can significantly impact your productivity and overall well-being. Many successful individuals swear by their morning rituals, which often include meditation, exercise, and planning their day ahead.
-
-Research shows that having a structured beginning to your day helps reduce decision fatigue and creates a sense of control. Whether it's enjoying a cup of coffee while reading the news or going for a morning walk, these small habits can make a big difference.
-
-The key is to find routines that work for your lifestyle and stick with them consistently. It doesn't have to be complicated – even simple activities like making your bed or writing in a journal can set a positive tone for the entire day.
-
 ---
 
 <!-- 첫 번째 애드센스 광고 -->
@@ -42,10 +34,6 @@ The key is to find routines that work for your lifestyle and stick with them con
 *Published on March 10, 2024*
 
 Reading before bedtime has been a cherished habit for many people around the world. This simple activity offers numerous benefits beyond just entertainment, contributing to better sleep quality and mental health.
-
-When you read before sleep, you're giving your mind a chance to unwind from the stresses of the day. Unlike screens, which emit blue light that can interfere with sleep patterns, books provide a gentle transition from wakefulness to rest.
-
-Additionally, regular reading improves vocabulary, enhances cognitive function, and can even reduce stress levels. Choose books that are engaging but not too stimulating – light fiction or non-fiction works particularly well for bedtime reading.
 
 ---
 
