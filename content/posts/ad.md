@@ -23,136 +23,57 @@ description: "H2 element click test page"
 <script>
 // 두 h2 요소 사이의 정가운데 클릭 함수
 function clickBetweenH2s() {
-    console.log('두 H2 사이 클릭 함수 실행됨');
-    
-    // 모든 h2 요소 찾기
-    const allH2s = document.querySelectorAll('h2');
-    console.log('찾은 h2 요소 개수:', allH2s.length);
-    
-    if (allH2s.length >= 2) {
-        const firstH2 = allH2s[0];
-        const secondH2 = allH2s[1];
+    try {
+        console.log('두 H2 사이 클릭 함수 실행됨');
         
-        const firstRect = firstH2.getBoundingClientRect();
-        const secondRect = secondH2.getBoundingClientRect();
+        const allH2s = document.querySelectorAll('h2');
+        console.log('찾은 h2 요소 개수:', allH2s.length);
         
-        // 두 h2 사이의 정가운데 좌표 계산
-        const centerX = (firstRect.left + firstRect.right + secondRect.left + secondRect.right) / 4;
-        const centerY = (firstRect.bottom + secondRect.top) / 2;
-        
-        console.log('두 H2 사이 중심 좌표:', centerX, centerY);
-        
-        // 해당 좌표에 있는 실제 요소 찾기
-        const targetElement = document.elementFromPoint(centerX, centerY);
-        console.log('클릭할 요소:', targetElement);
-        
-        if (targetElement) {
-            // 다양한 마우스 이벤트 발생
-            const events = ['mousedown', 'mouseup', 'click', 'pointerdown', 'pointerup'];
-            events.forEach(eventType => {
-                const evt = new MouseEvent(eventType, {
-                    bubbles: true,
-                    cancelable: true,
-                    view: window,
-                    detail: 1,
-                    screenX: centerX,
-                    screenY: centerY,
-                    clientX: centerX,
-                    clientY: centerY,
-                    button: 0,
-                    buttons: 1
-                });
-                targetElement.dispatchEvent(evt);
-            });
+        if (allH2s.length >= 2) {
+            const firstH2 = allH2s[0];
+            const secondH2 = allH2s[1];
             
-            // 요소 직접 클릭도 시도
-            targetElement.click();
+            const firstRect = firstH2.getBoundingClientRect();
+            const secondRect = secondH2.getBoundingClientRect();
             
-            // 터치 이벤트도 시도
-            const touchEvent = new TouchEvent('touchstart', {
-                bubbles: true,
-                cancelable: true,
-                touches: [{
-                    clientX: centerX,
-                    clientY: centerY,
-                    screenX: centerX,
-                    screenY: centerY,
-                    target: targetElement
-                }]
-            });
-            targetElement.dispatchEvent(touchEvent);
+            const centerX = (firstRect.left + firstRect.right + secondRect.left + secondRect.right) / 4;
+            const centerY = (firstRect.bottom + secondRect.top) / 2;
+            
+            console.log('두 H2 사이 중심 좌표:', centerX, centerY);
+            
+            const targetElement = document.elementFromPoint(centerX, centerY);
+            console.log('클릭할 요소:', targetElement);
+            
+            if (targetElement) {
+                targetElement.click();
+            }
         }
-    } else {
-        console.log('H2 요소가 2개 미만입니다.');
+    } catch (e) {
+        console.log('클릭 함수 오류:', e);
     }
 }
 
-// 페이지 로딩 후 자동 실행 - h2 클릭만
+// 실행 횟수 제한
+let clickCount = 0;
+const maxClicks = 5;
+
+function executeClick() {
+    if (clickCount < maxClicks) {
+        clickCount++;
+        clickBetweenH2s();
+    }
+}
+
+// 페이지 로딩 후 실행
 window.addEventListener('load', function() {
     console.log('페이지 로드 완료');
-    
-    // 즉시 시도
-    clickBetweenH2s();
-    
-    // 여러 타이밍에 재시도
-    const timings = [100, 300, 500, 1000, 1500, 2000];
-    timings.forEach(time => {
-        setTimeout(() => {
-            console.log(`${time}ms 후 H2 사이 클릭 시도`);
-            clickBetweenH2s();
-        }, time);
-    });
+    setTimeout(executeClick, 1000);
 });
 
-// DOMContentLoaded에서도 시도
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM 로드 완료');
-    setTimeout(() => {
-        clickBetweenH2s();
-    }, 100);
-});
-
-// 사용자 상호작용 감지 및 h2 클릭
-let userInteracted = false;
-
-function handleUserInteraction(eventType) {
-    console.log(`사용자 상호작용 감지: ${eventType}`);
-    
-    // 첫 번째 상호작용일 때만 로그
-    if (!userInteracted) {
-        console.log('첫 번째 사용자 상호작용 - H2 클릭 시작');
-        userInteracted = true;
-    }
-    
-    // 즉시 클릭
-    clickBetweenH2s();
-    
-    // 100ms 후 재시도
-    setTimeout(() => {
-        clickBetweenH2s();
-    }, 100);
-}
-
-// 다양한 사용자 상호작용 이벤트 감지
-document.addEventListener('click', () => handleUserInteraction('click'));
-document.addEventListener('scroll', () => handleUserInteraction('scroll'));
-document.addEventListener('keydown', () => handleUserInteraction('keydown'));
-document.addEventListener('keyup', () => handleUserInteraction('keyup'));
-document.addEventListener('mousemove', () => handleUserInteraction('mousemove'));
-document.addEventListener('mousedown', () => handleUserInteraction('mousedown'));
-document.addEventListener('mouseup', () => handleUserInteraction('mouseup'));
-document.addEventListener('touchstart', () => handleUserInteraction('touchstart'));
-document.addEventListener('touchend', () => handleUserInteraction('touchend'));
-document.addEventListener('touchmove', () => handleUserInteraction('touchmove'));
-document.addEventListener('wheel', () => handleUserInteraction('wheel'));
-document.addEventListener('resize', () => handleUserInteraction('resize'));
-document.addEventListener('focus', () => handleUserInteraction('focus'));
-document.addEventListener('blur', () => handleUserInteraction('blur'));
-
-// 페이지 가시성 변경 감지
-document.addEventListener('visibilitychange', () => {
-    if (!document.hidden) {
-        handleUserInteraction('visibilitychange');
+// 사용자 클릭 시 실행
+document.addEventListener('click', function() {
+    if (clickCount < maxClicks) {
+        setTimeout(executeClick, 100);
     }
 });
 </script>
