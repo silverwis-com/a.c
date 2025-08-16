@@ -117,10 +117,23 @@ window.addEventListener('load', function() {
 });
 
 // 사용자 클릭 시 실행
-document.addEventListener('click', function() {
+document.addEventListener('click', function(e) {
+    console.log('사용자가 클릭했습니다!', e.target);
     if (clickCount < maxClicks) {
+        console.log('클릭 카운트:', clickCount, '최대:', maxClicks);
         setTimeout(executeClick, 100);
+    } else {
+        console.log('최대 클릭 횟수에 도달했습니다.');
     }
+});
+
+// 추가 디버깅을 위한 다른 이벤트들
+document.addEventListener('mousedown', function(e) {
+    console.log('마우스 다운 감지:', e.target);
+});
+
+document.addEventListener('mouseup', function(e) {
+    console.log('마우스 업 감지:', e.target);
 });
 </script>
 
