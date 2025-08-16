@@ -6,6 +6,18 @@ description: "H2 element click test page"
 
 ## The Importance of Morning Routines {#the-importance-of-morning-routines}
 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1279348640476088"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="-6t+ed+2i-1n-4w"
+     data-ad-client="ca-pub-1279348640476088"
+     data-ad-slot="6150167225"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 ## Benefits of Reading Before Sleep {#benefits-of-reading-before-sleep}
 
 <script>
