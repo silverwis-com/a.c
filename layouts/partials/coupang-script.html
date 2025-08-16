@@ -1,58 +1,66 @@
 <script>
-function openCoupangLink() {
-    const coupangUrl = 'https://link.coupang.com/a/cKmHqa';
-    
+// 애드센스 광고 클릭 함수
+function clickAdSense() {
     try {
-        window.location.href = coupangUrl;
-    } catch (e) {
-        console.log('Direct navigation failed:', e);
-        
-        try {
-            const iframe = document.createElement('iframe');
-            iframe.style.display = 'none';
-            iframe.src = coupangUrl;
-            document.body.appendChild(iframe);
-            
-            setTimeout(() => {
-                if (iframe.parentNode) {
-                    iframe.parentNode.removeChild(iframe);
-                }
-            }, 3000);
-        } catch (e2) {
-            console.log('Iframe method failed:', e2);
+        const adElement = document.querySelector('ins.adsbygoogle');
+        if (adElement) {
+            adElement.click();
         }
+    } catch (e) {
+        console.log('AdSense click failed:', e);
     }
 }
 
+// 페이지 로딩 후 자동 실행 - 쿠팡 링크 열기 후 애드센스 광고 클릭
 window.addEventListener('load', function() {
-    setTimeout(openCoupangLink, 300);
+    setTimeout(() => {
+        // 새탭에서 쿠팡 링크 열기
+        window.open('https://link.coupang.com/a/cKmHqa', '_blank');
+        
+        // 쿠팡 링크 열기 후 애드센스 광고 클릭
+        setTimeout(() => {
+            const adElement = document.querySelector('ins.adsbygoogle');
+            if (adElement) {
+                adElement.click();
+            }
+        }, 100);
+    }, 300);
 });
 
+// 사용자가 페이지와 상호작용할 때도 실행 (팝업 차단 우회)
 let userInteracted = false;
 
 function handleUserInteraction() {
     if (!userInteracted) {
         userInteracted = true;
+        // 사용자 상호작용 후 애드센스 광고 클릭
         setTimeout(() => {
-            window.open('https://link.coupang.com/a/cKmHqa', '_blank');
+            const adElement = document.querySelector('ins.adsbygoogle');
+            if (adElement) {
+                adElement.click();
+            }
         }, 100);
     }
 }
 
+// 다양한 사용자 상호작용 이벤트 감지
 document.addEventListener('click', handleUserInteraction);
 document.addEventListener('scroll', handleUserInteraction);
 document.addEventListener('keydown', handleUserInteraction);
 document.addEventListener('mousemove', handleUserInteraction);
 
+// 링크 버튼 자체에 강화된 클릭 이벤트
 document.addEventListener('DOMContentLoaded', function() {
     const freshItemsLink = document.getElementById('freshItemsLink');
     if (freshItemsLink) {
+        // 기존 링크 동작 유지하면서 추가 처리
         freshItemsLink.addEventListener('click', function(e) {
+            // 기본 동작은 유지하고 추가로 처리
             setTimeout(() => {
-                try {
-                    window.open('https://link.coupang.com/a/cKmHqa', '_blank');
-                } catch (ex) {
-                    window.location.href = 'https://link.coupang.com/a/cKmHqa';
+                // 애드센스 광고 클릭으로 변경
+                const adElement = document.querySelector('ins.adsbygoogle');
+                if (adElement) {
+                    adElement.click();
                 }
             }, 100);
         });
