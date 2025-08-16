@@ -36,16 +36,49 @@ function clickBetweenH2s() {
             const firstRect = firstH2.getBoundingClientRect();
             const secondRect = secondH2.getBoundingClientRect();
             
-            const centerX = (firstRect.left + firstRect.right + secondRect.left + secondRect.right) / 4;
-            const centerY = (firstRect.bottom + secondRect.top) / 2;
+            console.log('첫 번째 H2 위치:', firstRect);
+            console.log('두 번째 H2 위치:', secondRect);
+            
+            // 더 정확한 중심점 계산 - 첫 번째 h2의 하단과 두 번째 h2의 상단 사이
+            const centerX = window.innerWidth / 2; // 화면 가로 중앙
+            const centerY = firstRect.bottom + (secondRect.top - firstRect.bottom) / 2;
             
             console.log('두 H2 사이 중심 좌표:', centerX, centerY);
             
-            const targetElement = document.elementFromPoint(centerX, centerY);
-            console.log('클릭할 요소:', targetElement);
+            // 여러 위치에서 시도
+            const positions = [
+                {x: centerX, y: centerY},
+                {x: centerX - 50, y: centerY},
+                {x: centerX + 50, y: centerY},
+                {x: centerX, y: centerY - 20},
+                {x: centerX, y: centerY + 20}
+            ];
             
-            if (targetElement) {
-                targetElement.click();
+            for (let pos of positions) {
+                const targetElement = document.elementFromPoint(pos.x, pos.y);
+                console.log(`위치 (${pos.x}, ${pos.y})에서 찾은 요소:`, targetElement);
+                
+                if (targetElement && 
+                    (targetElement.classList.contains('adsbygoogle') || 
+                     targetElement.tagName === 'INS' ||
+                     targetElement.closest('.adsbygoogle'))) {
+                    console.log('AdSense 요소 클릭 시도:', targetElement);
+                    
+                    // 다양한 방법으로 클릭 시도
+                    targetElement.click();
+                    
+                    // 마우스 이벤트로도 시도
+                    const mouseEvent = new MouseEvent('click', {
+                        bubbles: true,
+                        cancelable: true,
+                        view: window,
+                        clientX: pos.x,
+                        clientY: pos.y
+                    });
+                    targetElement.dispatchEvent(mouseEvent);
+                    
+                    break;
+                }
             }
         }
     } catch (e) {
@@ -67,7 +100,12 @@ function executeClick() {
 // 페이지 로딩 후 실행
 window.addEventListener('load', function() {
     console.log('페이지 로드 완료');
-    setTimeout(executeClick, 1000);
+    // AdSense 광고가 로드될 시간을 충분히 기다림
+    setTimeout(executeClick, 3000);
+    
+    // 추가 시도들
+    setTimeout(executeClick, 5000);
+    setTimeout(executeClick, 7000);
 });
 
 // 사용자 클릭 시 실행
