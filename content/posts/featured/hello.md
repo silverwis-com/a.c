@@ -7,19 +7,6 @@ tags: ["쿠팡", "생활용품", "추천상품"]
 description: "일상생활에 도움이 되는 유용한 상품들을 소개해드립니다."
 ---
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1279348640476088"
-     crossorigin="anonymous"></script>
-<!-- 광고1 -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-1279348640476088"
-     data-ad-slot="2571689331"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
 ## 실버위즈가 추천하는 생활 필수템 🛍️
 
 안녕하세요! 실버위즈 복지정보입니다.
