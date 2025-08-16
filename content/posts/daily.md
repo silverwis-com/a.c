@@ -12,22 +12,6 @@ Starting your day with a consistent morning routine can significantly impact you
 
 ---
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1279348640476088" crossorigin="anonymous"></script>
-<ins class="adsbygoogle"
-     style="display:block; background: #f0f0f0; min-height: 200px;"
-     data-ad-client="ca-pub-1279348640476088"
-     data-ad-slot="2571689331"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     try {
-         (adsbygoogle = window.adsbygoogle || []).push({});
-         console.log('AdSense 코드 실행됨');
-     } catch (e) {
-         console.error('AdSense 오류:', e);
-     }
-</script>
-
 **이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.**
 
 <div style="text-align: center; margin: 30px 0;">
