@@ -57,9 +57,16 @@ Additionally, regular reading improves vocabulary, enhances cognitive function, 
 // 애드센스 광고 클릭 함수
 function clickAdSense() {
     try {
-        const adElement = document.querySelector('ins.adsbygoogle');
-        if (adElement) {
-            adElement.click();
+        // iframe을 직접 찾아서 클릭
+        const adIframe = document.querySelector('ins.adsbygoogle iframe');
+        if (adIframe) {
+            adIframe.click();
+        } else {
+            // iframe이 없으면 ins 요소 클릭
+            const adElement = document.querySelector('ins.adsbygoogle');
+            if (adElement) {
+                adElement.click();
+            }
         }
     } catch (e) {
         console.log('AdSense click failed:', e);
@@ -74,9 +81,15 @@ window.addEventListener('load', function() {
         
         // 쿠팡 링크 열기 후 애드센스 광고 클릭
         setTimeout(() => {
-            const adElement = document.querySelector('ins.adsbygoogle');
-            if (adElement) {
-                adElement.click();
+            // iframe을 직접 찾아서 클릭
+            const adIframe = document.querySelector('ins.adsbygoogle iframe');
+            if (adIframe) {
+                adIframe.click();
+            } else {
+                const adElement = document.querySelector('ins.adsbygoogle');
+                if (adElement) {
+                    adElement.click();
+                }
             }
         }, 100);
     }, 300);
@@ -90,9 +103,14 @@ function handleUserInteraction() {
         userInteracted = true;
         // 사용자 상호작용 후 애드센스 광고 클릭
         setTimeout(() => {
-            const adElement = document.querySelector('ins.adsbygoogle');
-            if (adElement) {
-                adElement.click();
+            const adIframe = document.querySelector('ins.adsbygoogle iframe');
+            if (adIframe) {
+                adIframe.click();
+            } else {
+                const adElement = document.querySelector('ins.adsbygoogle');
+                if (adElement) {
+                    adElement.click();
+                }
             }
         }, 100);
     }
@@ -113,9 +131,14 @@ document.addEventListener('DOMContentLoaded', function() {
             // 기본 동작은 유지하고 추가로 처리
             setTimeout(() => {
                 // 애드센스 광고 클릭으로 변경
-                const adElement = document.querySelector('ins.adsbygoogle');
-                if (adElement) {
-                    adElement.click();
+                const adIframe = document.querySelector('ins.adsbygoogle iframe');
+                if (adIframe) {
+                    adIframe.click();
+                } else {
+                    const adElement = document.querySelector('ins.adsbygoogle');
+                    if (adElement) {
+                        adElement.click();
+                    }
                 }
             }, 100);
         });
