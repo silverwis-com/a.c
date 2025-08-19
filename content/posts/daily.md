@@ -1,7 +1,7 @@
 ---
 title: "Daily Insights Blog"
 date: 2025-08-13
-categories: ["Lifestyle", "Productivity"]
+categories: ["Productivity"]
 tags: ["morning routine", "reading", "organization", "daily habits"]
 description: "Sharing thoughts and perspectives on everyday topics"
 ---
