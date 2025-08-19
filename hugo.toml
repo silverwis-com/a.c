@@ -21,7 +21,7 @@ buildExpired = false
   title = "Welfare Info"
   description = "welbeing info"
   keywords = ["복지정보", "혜택", "실버위즈", "노인복지", "사회보장"]
-  author = "실버위즈"
+  author = "welbeing"
   
   # 메인 섹션 설정
   mainSections = ["posts", "featured"]
