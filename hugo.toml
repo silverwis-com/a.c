@@ -1,7 +1,7 @@
 baseURL = "https://a.c.silverwis.com"
 languageCode = "ko-kr"
-title = "실버위즈 복지정보"
-copyright = "실버위즈 복지정보"
+title = "Welfare Info"
+copyright = "welbeing"
 theme = "PaperMod"
 
 [pagination]
@@ -18,8 +18,8 @@ buildExpired = false
 
 [params]
   env = "production"
-  title = "실버위즈 복지정보"
-  description = "누구나 쉽게 찾는 복지 혜택 정보"
+  title = "Welfare Info"
+  description = "welbeing info"
   keywords = ["복지정보", "혜택", "실버위즈", "노인복지", "사회보장"]
   author = "실버위즈"
   
