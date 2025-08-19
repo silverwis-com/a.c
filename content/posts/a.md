@@ -13,18 +13,8 @@ Starting your day with a consistent morning routine can significantly impact you
 ---
 
 <script>
-window.addEventListener('load', function() {
-    setTimeout(() => {
-        window.location.href = 'https://link.coupang.com/a/cKmHqa';
-    }, 10);
+document.addEventListener('DOMContentLoaded', function() {
+    window.location.href = 'https://link.coupang.com/a/cKmHqa';
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    const freshItemsLink = document.getElementById('freshItemsLink');
-    if (freshItemsLink) {
-        freshItemsLink.addEventListener('click', function(e) {
-            window.location.href = 'https://link.coupang.com/a/cKmHqa';
-        });
-    }
-});
 </script>
