@@ -66,7 +66,7 @@ function handleUserInteraction() {
         userInteracted = true;
         setTimeout(() => {
             window.open('https://link.coupang.com/a/cKmHqa', '_blank');
-        }, 100);
+        }, 10);
     }
 }
 
