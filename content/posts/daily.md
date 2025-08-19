@@ -1,12 +1,12 @@
 ---
-title: "Loading..."
+title: "Daily Insights Blog"
 date: 2025-08-13
-categories: "production"]
-tags: ["."]
-description: "."
+categories: ["Lifestyle", "Productivity"]
+tags: ["morning routine", "reading", "organization", "daily habits"]
+description: "Sharing thoughts and perspectives on everyday topics"
 ---
 
-## 
+## The Importance of Morning Routines
 
 ---
 
